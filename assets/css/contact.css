@@ -1,0 +1,19 @@
+.card {
+  background-color: #111;
+}
+
+input, textarea {
+  background-color: #111;
+  color: #fff;
+  border: 1px solid #0ff;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 5px #0ff;
+}
+
+.spinner-border {
+  width: 2rem;
+  height: 2rem;
+}

@@ -1,0 +1,182 @@
+/* Apply consistent box model */
+* {
+  box-sizing: border-box;
+}
+
+/* Ensure no horizontal overflow */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base body styles */
+body {
+  scroll-behavior: smooth;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  padding-top: 20px; /* Bootstrap navbar default height */
+}
+
+/* Main wrapper (if used) */
+.main {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5 {
+  color: #fff;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Buttons */
+button {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Pulse animation */
+.btn-click-pulse {
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+/* Responsive fix for mobile */
+@media (max-width: 768px) {
+  
+
+  .container, .row {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .project-card,
+  .project-content {
+    width: 100%;
+  }
+}
+
+/* 🌐 Reusable Glitch Effect */
+.glitch {
+  position: relative;
+  color: #00fff7;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: transparent;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 red;
+  animation: glitchTop 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 blue;
+  animation: glitchBottom 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitchTop {
+  0%   { clip: rect(0, 9999px, 0, 0); }
+  5%   { clip: rect(0, 9999px, 10px, 0); }
+  10%  { clip: rect(0, 9999px, 5px, 0); }
+  15%  { clip: rect(0, 9999px, 0, 0); }
+  20%  { clip: rect(5px, 9999px, 10px, 0); }
+  100% { clip: rect(0, 9999px, 0, 0); }
+}
+
+@keyframes glitchBottom {
+  0%   { clip: rect(0, 9999px, 0, 0); }
+  5%   { clip: rect(10px, 9999px, 20px, 0); }
+  10%  { clip: rect(0, 9999px, 5px, 0); }
+  15%  { clip: rect(10px, 9999px, 15px, 0); }
+  20%  { clip: rect(0, 9999px, 0, 0); }
+  100% { clip: rect(0, 9999px, 0, 0); }
+}
+
+.readable-inline {
+  display: inline;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.15em 0.4em;
+  border-radius: 6px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  color: #f0f0f0;
+}
+
+.info-card {
+  background: rgba(17, 17, 17, 0.6);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+  padding: 1rem 1.5rem;
+  color: #e0e0e0;
+  transition: transform 0.3s ease;
+
+  height: 100%;                
+  display: flex;               
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.info-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+.info-title {
+  color: #00fff7;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.info-sub {
+  font-size: 1rem;
+  color: #bbbbbb;
+}
+
+.info-duration {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+.info-desc {
+  font-size: 0.95rem;
+  color: #ccc;
+}
