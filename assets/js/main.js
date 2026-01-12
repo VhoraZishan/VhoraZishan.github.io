@@ -5,6 +5,7 @@ const modules = [
   { id: "about" },
   { id: "skills" },
   { id: "projects", script: "assets/js/projects.js" },
+  { id: "experience" },
   { id: "education" },
   { id: "certification" },
   { id: "contact", script: "assets/js/contact.js" },

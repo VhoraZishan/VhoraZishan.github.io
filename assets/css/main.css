@@ -4,9 +4,12 @@
 }
 
 /* Ensure no horizontal overflow */
-html, body {
+html,
+body {
   width: 100%;
   overflow-x: hidden;
+  overscroll-behavior-y: none;
+  /* Prevents bounce/overscroll */
   margin: 0;
   padding: 0;
 }
@@ -17,7 +20,8 @@ body {
   background-color: #000;
   color: #fff;
   font-family: 'Segoe UI', sans-serif;
-  padding-top: 20px; /* Bootstrap navbar default height */
+  padding-top: 20px;
+  /* Bootstrap navbar default height */
 }
 
 /* Main wrapper (if used) */
@@ -28,7 +32,11 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   color: #fff;
 }
 
@@ -49,15 +57,21 @@ button {
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.05); }
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.05);
+  }
 }
 
 /* Responsive fix for mobile */
 @media (max-width: 768px) {
-  
 
-  .container, .row {
+
+  .container,
+  .row {
     margin: 0 !important;
     padding: 0 !important;
     width: 100% !important;
@@ -108,21 +122,55 @@ button {
 }
 
 @keyframes glitchTop {
-  0%   { clip: rect(0, 9999px, 0, 0); }
-  5%   { clip: rect(0, 9999px, 10px, 0); }
-  10%  { clip: rect(0, 9999px, 5px, 0); }
-  15%  { clip: rect(0, 9999px, 0, 0); }
-  20%  { clip: rect(5px, 9999px, 10px, 0); }
-  100% { clip: rect(0, 9999px, 0, 0); }
+  0% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+
+  5% {
+    clip: rect(0, 9999px, 10px, 0);
+  }
+
+  10% {
+    clip: rect(0, 9999px, 5px, 0);
+  }
+
+  15% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+
+  20% {
+    clip: rect(5px, 9999px, 10px, 0);
+  }
+
+  100% {
+    clip: rect(0, 9999px, 0, 0);
+  }
 }
 
 @keyframes glitchBottom {
-  0%   { clip: rect(0, 9999px, 0, 0); }
-  5%   { clip: rect(10px, 9999px, 20px, 0); }
-  10%  { clip: rect(0, 9999px, 5px, 0); }
-  15%  { clip: rect(10px, 9999px, 15px, 0); }
-  20%  { clip: rect(0, 9999px, 0, 0); }
-  100% { clip: rect(0, 9999px, 0, 0); }
+  0% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+
+  5% {
+    clip: rect(10px, 9999px, 20px, 0);
+  }
+
+  10% {
+    clip: rect(0, 9999px, 5px, 0);
+  }
+
+  15% {
+    clip: rect(10px, 9999px, 15px, 0);
+  }
+
+  20% {
+    clip: rect(0, 9999px, 0, 0);
+  }
+
+  100% {
+    clip: rect(0, 9999px, 0, 0);
+  }
 }
 
 .readable-inline {
@@ -147,8 +195,8 @@ button {
   color: #e0e0e0;
   transition: transform 0.3s ease;
 
-  height: 100%;                
-  display: flex;               
+  height: 100%;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
