@@ -1,17 +1,21 @@
 /* Remove horizontal overflow on small screens */
-html, body {
+html,
+body {
   max-width: 100%;
   overflow-x: hidden;
 }
 
 /* General card styling */
 .project-card {
-  background: rgba(17, 17, 17, 0.6); /* dark translucent */
+  background: rgba(17, 17, 17, 0.6);
+  /* dark translucent */
   border: 1px solid rgba(0, 255, 255, 0.3);
   border-radius: 16px;
   overflow: hidden;
-  backdrop-filter: blur(10px); /* frosted glass effect */
-  -webkit-backdrop-filter: blur(10px); /* for Safari */
+  backdrop-filter: blur(10px);
+  /* frosted glass effect */
+  -webkit-backdrop-filter: blur(10px);
+  /* for Safari */
   box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
@@ -101,7 +105,7 @@ html, body {
 }
 
 .project-desc .full-text.expanded {
-  max-height: 500px;
+  max-height: 2000px;
   opacity: 1;
 }
 
@@ -113,15 +117,19 @@ html, body {
   border-radius: 6px;
 }
 
-/* Slide animation for extra projects */
-.more-projects {
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  transition: max-height 0.5s ease, opacity 0.4s ease;
+/* Fade In Animation for extra projects */
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
 }
 
-.more-projects.show {
-  max-height: 1500px; /* Adjust based on total height of hidden cards */
-  opacity: 1;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
