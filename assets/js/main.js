@@ -1,100 +1,33 @@
 const modules = [
-  "navbar",
-  "background",
-  "profile",
-  "about",
-  "skills",
-  "projects",
-  "resume",
-  "contact",
-  "footer",
-  "education",
-  "certification"
+  { id: "navbar", script: "assets/js/navbar.js" },
+  { id: "background", script: "assets/js/background.js" },
+  { id: "profile" },
+  { id: "about" },
+  { id: "skills" },
+  { id: "projects", script: "assets/js/projects.js" },
+  { id: "education" },
+  { id: "certification" },
+  { id: "contact", script: "assets/js/contact.js" },
+  { id: "footer", script: "assets/js/footer.js" }
 ];
 
-modules.forEach(id => {
-  const el = document.getElementById(id);
-  if (el) {
-    if (id === "background") {
-      // Load background and script after inject
-      fetch(`modules/background.html`)
-        .then(res => res.text())
-        .then(html => {
-          el.innerHTML = html;
-          loadScript("assets/js/background.js");
-        })
-        .catch(err => console.error(`Error loading ${id}.html:`, err));
-    }
+modules.forEach(module => {
+  const el = document.getElementById(module.id);
+  if (!el) return;
 
-    else if (id === "navbar") {
-      fetch(`modules/${id}.html`)
-        .then(res => res.text())
-        .then(html => {
-          el.innerHTML = html;
-          loadScript("assets/js/navbar.js");
-        })
-        .catch(err => console.error(`Error loading ${id}.html:`, err));
-    }
-
-    else if (id === "projects") {
-      fetch(`modules/${id}.html`)
-        .then(res => res.text())
-        .then(html => {
-          el.innerHTML = html;
-          loadScript("assets/js/projects.js");
-        })
-        .catch(err => console.error(`Error loading ${id}.html:`, err));
-    }
-
-    else if (id === "contact") {
-      fetch(`modules/${id}.html`)
-        .then(res => res.text())
-        .then(html => {
-          el.innerHTML = html;
-          loadScript("assets/js/contact.js");
-        })
-        .catch(err => console.error(`Error loading ${id}.html:`, err));
-    }
-
-    else if (id === "education") {
-  fetch(`modules/${id}.html`)
-    .then(res => res.text())
+  fetch(`modules/${module.id}.html`)
+    .then(res => {
+      if (!res.ok) throw new Error(`Failed to load ${module.id}`);
+      return res.text();
+    })
     .then(html => {
       el.innerHTML = html;
+      // If a script is associated, load it after HTML injection
+      if (module.script) {
+        loadScript(module.script);
+      }
     })
-    .catch(err => console.error(`Error loading ${id}.html:`, err));
-}
-
-else if (id === "certification") {
-  fetch(`modules/${id}.html`)
-    .then(res => res.text())
-    .then(html => {
-      el.innerHTML = html;
-    })
-    .catch(err => console.error(`Error loading ${id}.html:`, err));
-}
-
-else if (id === "footer") {
-  fetch(`modules/${id}.html`)
-    .then(res => res.text())
-    .then(html => {
-      el.innerHTML = html;
-      loadScript("assets/js/footer.js"); // <-- Make sure this line exists
-    })
-    .catch(err => console.error(`Error loading ${id}.html:`, err));
-}
-
-    else {
-      // Load module with no extra script
-      fetch(`modules/${id}.html`)
-        .then(res => res.text())
-        .then(html => {
-          el.innerHTML = html;
-        })
-        .catch(err => console.error(`Error loading ${id}.html:`, err));
-    }
-  }
-  
+    .catch(err => console.error(`Error loading ${module.id}:`, err));
 });
 
 // Utility function to load external JS files dynamically
@@ -102,6 +35,7 @@ function loadScript(src) {
   const script = document.createElement("script");
   script.src = src;
   script.type = "text/javascript";
+  script.defer = true;
   document.body.appendChild(script);
 }
 

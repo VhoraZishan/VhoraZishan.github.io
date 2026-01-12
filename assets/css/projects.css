@@ -1,9 +1,5 @@
 /* Remove horizontal overflow on small screens */
-html,
-body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
+/* Horizontal overflow on small screens handled in main.css */
 
 /* General card styling */
 .project-card {
