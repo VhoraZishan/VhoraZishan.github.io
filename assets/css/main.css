@@ -4,12 +4,15 @@
 }
 
 /* Ensure no horizontal overflow */
-html,
+/* Ensure no horizontal overflow */
+html {
+  background-color: #000;
+  /* Ensures scroll bounce area is black */
+}
+
 body {
   width: 100%;
   overflow-x: hidden;
-  overscroll-behavior-y: none;
-  /* Prevents bounce/overscroll */
   margin: 0;
   padding: 0;
 }
