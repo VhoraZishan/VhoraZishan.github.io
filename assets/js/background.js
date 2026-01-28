@@ -8,7 +8,7 @@ setTimeout(() => {
     particlesJS("particles-js", {
       particles: {
         number: {
-          value: 60,
+          value: 25,
           density: {
             enable: true,
             value_area: 800
@@ -65,12 +65,12 @@ setTimeout(() => {
     container.scrollHeight || 0
   );
 
-  for (let i = 0; i < 35; i++) {
+  for (let i = 0; i < 15; i++) {
     const span = document.createElement("span");
     span.className = "floating-text";
     span.innerText = keywords[Math.floor(Math.random() * keywords.length)];
 
-    span.style.top = `${Math.random() * fullHeight}px`; // ✅ hybrid height
+    span.style.top = `${Math.random() * 100}vh`; // ✅ Viewport height
     span.style.left = `${Math.random() * 100}vw`;
     span.style.fontSize = `${Math.random() * 1.5 + 0.8}rem`;
     span.style.animationDuration = `${Math.random() * 10 + 10}s`;

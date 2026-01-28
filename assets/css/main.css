@@ -20,7 +20,8 @@ body {
 /* Base body styles */
 body {
   scroll-behavior: smooth;
-  background-color: #000;
+  background-color: transparent;
+  /* Changed from #000 to allow background elements to be visible */
   color: #fff;
   font-family: 'Segoe UI', sans-serif;
   padding-top: 20px;
