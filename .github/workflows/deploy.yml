@@ -9,7 +9,6 @@ jobs:
 deploy:
 runs-on: ubuntu-latest
 
-```
 steps:
   - name: Deploy to server
     uses: appleboy/ssh-action@v1.0.3
@@ -20,6 +19,4 @@ steps:
       key: ${{ secrets.SERVER_SSH_KEY }}
 
       script: |
-        cd ~/portfolio
         ~/update-portfolio.sh
-```
